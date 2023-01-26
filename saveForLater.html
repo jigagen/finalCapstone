@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Save For Later</title>
+    <!-- made a link to css document -->
+    <link href="saveForLater.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <!-- made navigation bar at the top -->
+      <nav>
+        <a href="indexUpdated.html">Home Page</a>
+        <a href="page2Updated.html">Second Page</a>
+        <a href="page3Updated.html">Previous Page</a>
+        <a href="saved.html"> saved</a>
+      </nav>
+    </header>
+    <h1>Related websites</h1>
+    <div class="container">
+      <div class="col">
+        <img src="environmentimage.jpeg" alt="diagram" class="Image" />
+        <button class="like">Like</button>
+        <button class="save">Save for later</button>
+      </div>
+      <div class="col">
+        <img src="fututecity.jpeg" alt="picture of futur ecity" class="Image" />
+        <button class="like">Like</button>
+        <button class="save">Save for later</button>
+      </div>
+      <div class="col">
+        <img src="handworld.jpeg" alt="Picture world with hand" class="Image" />
+        <button class="like">Like</button>
+        <button class="save">Save for later</button>
+      </div>
+    </div>
+
+    <p id="thirdPara">piughipigpiugughhohgohoh</p>
+    <h2>Links to other environmentally friendly websites</h2>
+    <ol>
+      <li>
+        Greenpeace is an international non-governmental environmental
+        organization that works to protect the environment and promote peace.
+        <a href="https://www.greenpeace.org/">Green peace</a> <br />
+        <button class="like">Like</button>
+        <button class="save">Save for later</button>
+      </li>
+      <br />
+      <li>
+        The US Environmental Protection Agency (EPA) is responsible for
+        protecting human health and the environment.
+        <a href="https://www.epa.gov/">Environmental Protection Agency</a>
+        <br />
+        <button class="like">Like</button>
+        <button class="save">Save for later</button>
+      </li>
+      <li>
+        The Natural Resources Defense Council (NRDC) is a nonprofit organization
+        that works to protect the environment and public health.
+        <a href="https://www.nrdc.org/">Natural Resource Defense Council</a>
+        <br />
+        <button class="like">Like</button>
+        <button class="save">Save for later</button>
+      </li>
+      <br />
+      <li>
+        The Sierra Club is a membership-based environmental organization that
+        works to protect the environment.
+        <a href="https://www.sierraclub.org/">Sierra Club</a> <br />
+        <button class="like">Like</button>
+        <button class="save">Save for later</button>
+      </li>
+      <br />
+      <li>
+        Friends of the Earth (FOE) is an international network of environmental
+        organizations that works to protect the planet and its people.
+        <a href="https://www.foe.org/">Friends Of the Earth</a> <br />
+        <button class="like">Like</button>
+        <button class="save">Save for later</button>
+      </li>
+      <br />
+      <li>
+        EcoLine Wilderness is a nonprofit organization dedicated to protecting
+        wilderness and promoting sustainable land use practices.
+        <a href="https://www.ecolinewilderness.org/">Ecoline Wilderness</a>
+        <br />
+        <button class="like">Like</button>
+        <button class="save">Save for later</button>
+      </li>
+    </ol>
+
+    <h2>Leave a Comment</h2>
+    <form id="comment">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" />
+      <br />
+      <label for="comment">Comment:</label>
+      <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+      <br />
+      <input
+        type="submit"
+        value="Submit"
+        onclick="alert('Your comment has been submitted')"
+      />
+    </form>
+
+    <h2>Contact Us</h2>
+    <form id="contact">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" />
+      <br />
+      <label for="email">Email:</label>
+      <input type="text" name="email" id="email" />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      function contactUs() {
+        // Declares a function called contactUs.
+        let contactForm = document.getElementById("contact");
+        // Declares a variable called contactForm and assigns it to a DOM element with an ID of contact.
+        contactForm.addEventListener("submit", function () {
+          alert("Thank you for your email. We will be be in contact soon");
+          // Adds an event listener to the contactForm variable that listens for a submit event.  When triggered, it will alert the user with a message.
+        });
+      }
+      contactUs();
+
+      function toggleLike() {
+        // Declares a function called toggleLike.
+        let likeButton = document.querySelectorAll(".like");
+        // Declares a variable called likeButton and assigns it to a DOM element with a class called
+        likeButton.forEach(function (button) {
+          button.addEventListener("click", function () {
+            // Adds an event listener to the likeButton variable that listens for a click event.
+            if (button.textContent === "Like") {
+              button.textContent = "Liked";
+              // If the text content of the button is equal to "Like", it will change the text content to "Liked".
+            } else {
+              button.textContent = "Like";
+              // Otherwise, it will change the text content to "Like".
+            }
+          });
+        });
+      }
+      toggleLike();
+
+      function saveForLater() {
+        // Declares a function called saveForLater.
+        let saveButton = document.querySelectorAll(".save");
+        // Declares a variable called saveButton and assigns it to a DOM element with a class of save.
+        saveButton.forEach(function (button) {
+          button.addEventListener("click", function () {
+            // Adds an event listener to the saveButton variable that listens for a click event.
+            if (button.textContent === "Save for later") {
+              let savedItems = [];
+              // Declares a variable called savedItems and assigns it to an empty array.
+              // get the parent element of the button
+              let parentElement = button.parentElement;
+              // Declares a variable called parentElement and assigns it to the parent of the button.
+              // get the content of the parent element and store in a variable
+              let content = parentElement.innerHTML;
+              // Declares a variable called content and assigns it to the innerHTML of the parentElement.
+              if (sessionStorage.getItem("savedItems") === null) {
+                savedItems = [];
+                // Checks to see if the savedItems key in sessionStorage is equal to null. If it is, it will assign an empty array to savedItems.
+              } else {
+                savedItems = JSON.parse(sessionStorage.getItem("savedItems"));
+                // Otherwise, it will assign the value of sessionStorage.getItem("savedItems") to savedItems after parsing the JSON.
+              }
+              // add the content to the savedItems array
+              savedItems.push(content);
+              // Adds the content variable to the savedItems array.
+              sessionStorage.setItem("savedItems", JSON.stringify(savedItems));
+              // Adds the savedItems array to sessionStorage with a key of savedItems.
+              alert(`You have saved ${savedItems.length} items for later.`);
+              // Alerts the user with the number of items they have saved.
+            }
+          });
+        });
+      }
+      saveForLater();
+    </script>
+  </body>
+</html>

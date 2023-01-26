@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saved Items</title>
+    <!-- made a link to css document -->
+    <link href="saved.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <!-- made navigation bar at the top -->
+      <nav>
+        <a href="indexUpdated.html">Home Page</a>
+        <a href="page2Updated.html">Second Page</a>
+        <a href="page3Updated.html">Previous Page</a>
+        <a href="saveForLater.html"> saveForLater</a>
+      </nav>
+    </header>
+    <h1>Saved Items</h1>
+
+    <script>
+      function savedItems() {
+        //It first creates a variable named savedItems, which stores the information that is parsed from the session storage item "savedItems"
+        let savedItems = JSON.parse(sessionStorage.getItem("savedItems"));
+        //If the savedItems is not empty, it will run a for loop which will loop through each saved item. 
+        if (savedItems !== null) {
+          for (let i = 0; i < savedItems.length; i++) {
+            //Each saved item is then logged to the console.
+            console.log(savedItems[i]);
+            //A new element is created in the DOM for each saved item, and the innerHTML is set to the string stored in the savedItem array. 
+            let savedItem = document.createElement("div");
+            savedItem.innerHTML = savedItems[i];
+            //This new element is then appended to the document body.
+            document.body.appendChild(savedItem);
+          }
+        } else {
+          //If savedItems is empty, an alert will appear indicating that the user does not have any saved items.
+          alert("You do not have any saved items");
+        }
+      }
+      savedItems();
+    </script>
+  </body>
+</html>

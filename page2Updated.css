@@ -1,0 +1,66 @@
+h1{
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 30px;
+    font-size: 40px;
+    color: rgb(67, 84, 84);
+}
+header{
+    position: fixed; 
+    right: 50px;
+    top: 10px;
+    text-align: center;
+  }
+img{
+    width: 450px;
+    height: 450px;
+    margin:auto;
+    display:block;
+    border-radius: 2%;
+}
+  figcaption{
+    text-align: center;
+    padding-bottom: 70px;
+    color: rgb(67, 84, 84);
+    
+  }
+  body{
+    background-color: rgb(217, 224, 202);
+  }
+.renewableTable{
+    padding-top: 50px;
+    border-collapse: collapse;
+    margin: 25px;
+    font-size: 0.9em;
+    min-width: 400px;
+    text-align: left ;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(67, 84, 84);
+    
+}
+/* changed the background colour for each table heading */
+   .renewableTable thead tr{
+    background-color: rgb(194, 201, 197);;
+    color: rgb(67, 84, 84);
+    text-align: left;
+    
+} 
+/* spaced the table out a bit   */
+.renewableTable th,
+.renewableTable td{
+    padding: 12px 15px;
+}
+/* put a line dividing each column */
+.renewableTable tbody tr{
+    border-bottom: 1px solid rgb(213, 221, 216);;
+}
+/* made every second column a different colour background */
+.renewableTable tbody tr:nth-of-type(even){
+    background-color: rgb(213, 221, 216);
+}
+/* made a thick line at the bottom of the table */
+.renewableTable tbody tr:last-of-type{
+    border-bottom: 10px solid rgb(194, 201, 197);;
+}
